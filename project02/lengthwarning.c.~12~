@@ -1,0 +1,56 @@
+#include <stdio.h> 
+
+int main(void) {
+  char ch;
+  char arr[1000];
+  int length = 0;
+  int size = 0;
+  int number = 0;
+  int i; 
+  int j; 
+  int k;
+
+  scanf("%c", &ch);
+  while (!feof(stdin)) {
+    number++;
+    while (ch != '\n') {
+      if (ch == '\t') {
+	length = length + (8 - (length % 8));
+      } else {
+	length++;
+      }
+      arr[size] = ch;
+      size++;
+      scanf("%c", &ch);
+    }
+    
+    arr[size] = '\n';
+    
+    if (length <= 80) {
+	printf(" "); 
+      } else {
+	printf("*");  
+      }
+      printf("%5d", number); 
+      printf(": ");
+
+      for (i = 0; i < size; i++) {
+	printf("%c", arr[i]);
+      }
+
+    if (length > 80) {
+      printf("\n");
+      for (j = 1; j <= 88; j++) {
+        printf(" "); 
+      }
+      for (k = 1; k <= length-80; k++) {
+	printf("^");
+      }
+    }
+    printf("\n");
+    length = 0;
+    size = 0;
+    scanf("%c", &ch);
+  } 
+  return 0;
+}

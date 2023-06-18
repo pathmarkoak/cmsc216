@@ -1,0 +1,35 @@
+#include <stdio.h> 
+
+int main(void) {
+  char ch;
+  int count = 0;
+
+  scanf("%c", &ch); 
+
+  while (!feof(stdin)) {
+    if (ch == ' ') {
+      while (ch != '\n') {
+	scanf("%c", &ch);
+      }
+    } else {
+      if (count > 1) {
+	printf(" ");
+      }
+
+      count++ 
+      scanf("%c", &ch); 
+  
+      while (ch == ' ') {
+	scanf("%c", &ch); 
+      }
+      printf("%c", ch);
+      
+      while (ch != '\n') {
+	scanf("%c", &ch);
+      }
+    }
+    scanf("%c", &ch);
+  }
+  printf("\n");
+  return 0;
+}
